@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,600,800");
 
 :root {
-  --white: whitesmoke;  
+  --white: whitesmoke; 
+  --black: rgb(22, 22, 22); 
 }
 
 *,
@@ -13,7 +14,9 @@
 html {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07);
+  font-size: 15px;
+  color: var(--black);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
 }
 
 body {
@@ -24,16 +27,52 @@ body {
 
 /* -------------- Header --------------------------*/
 .header {
-  background-color: grey;
+  background: url('/assets/girl-on-beach.jpg') center center no-repeat;
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+  min-height: 500px;
+  padding: 10px 50px 0 50px;
+  display: grid;
+  grid-template-rows: auto  auto 1fr;  
 }
 
 .header-top {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto;
+  border-bottom: 1px solid var(--black);
+  font-size: 12px;
+  font-weight: 400;
+  padding-bottom: 5px;
+}
+
+.header .header-bottom {
+  margin-top: 20px;
+  grid-gap: 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  font-style: italic;
 }
 
 .header-language {
-  text-align: right;
+  justify-self: right;
+}
+
+.button-smol {
+  border: 0;
+  background: transparent;
+  font-size: 15px;
+  letter-spacing: 1.1px;
+  padding: 5px 0 2px;
+  cursor: pointer;
+  /* font-weight: 600; */
+}
+
+.button-smol:hover {
+  border-bottom: 1px solid var(--black);
 }
 
 .header-bottom {
@@ -49,4 +88,16 @@ body {
     grid-auto-flow: row;
     padding: 10px var(--side-padding);
   }
+}
+
+.hero {
+  align-self: flex-end;
+  justify-self: right;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 30px;
+  color: var(--white);
+  text-shadow: 2px 2px 0px var(--black);
+  padding-bottom: 20px;
 }
