@@ -25,9 +25,17 @@ body {
   background: var(--white);
 }
 
+.site-wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  min-height: 100vh;
+  grid-template-rows: repeat(2, auto) 200px;
+  grid-gap: 30px;
+}
+
 /* -------------- Header --------------------------*/
 .header {
-  background: url('/assets/girl-on-beach.jpg') center center no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) ), url('/assets/come-on.jpg') center center no-repeat;
   background-size: cover;
   height: 100%;
   overflow: hidden;
@@ -68,7 +76,15 @@ body {
   letter-spacing: 1.1px;
   padding: 5px 0 2px;
   cursor: pointer;
-  /* font-weight: 600; */
+}
+
+button.button {
+  border: 1px solid black;
+  background: rgb(238, 244, 252);
+  font-size: 15px;
+  padding: 12px 15px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .button-smol:hover {
@@ -101,3 +117,30 @@ body {
   text-shadow: 2px 2px 0px var(--black);
   padding-bottom: 20px;
 }
+
+.content {
+  padding: 10px 50px 0 50px;
+}
+
+.wells {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 25px;
+  margin: 30px 0;
+}
+
+.wells .well {
+  border: 1px solid grey;
+  padding: 20px;
+}
+
+.well img {
+  max-width: 100%;
+  background-size: cover;
+}
+
+.footer {
+  padding: 10px 50px 0 50px;
+  background: grey;
+}
+
