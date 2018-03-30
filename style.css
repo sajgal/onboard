@@ -187,6 +187,14 @@ button.button:hover {
     justify-items: center;
     text-align: center;
   }
+
+  .footer .footer-bottom .created-by {
+    display: block;
+  }
+  
+  .footer .footer-bottom .created-by::before {
+    content: "";
+  }
 }
 
 @media (max-width: 550px) {
@@ -446,4 +454,12 @@ button.button:hover {
 .footer a:hover {
   color: var(--white);
   text-decoration: none;
+}
+
+.footer .created-by {
+  display: inline-block;
+}
+
+.footer .created-by::before {
+  content: " · ";
 }
