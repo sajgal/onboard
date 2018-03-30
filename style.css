@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,600,800|Gochi+Hand");
 
 :root {
-  --white: whitesmoke; 
-  --black: rgb(22, 22, 22); 
+  --white: whitesmoke;
+  --black: rgb(22, 22, 22);
   --grey: #1f2020;
   --blue: #117688;
   --content-margin: 70px;
@@ -12,6 +12,15 @@
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+a {
+  color: var(--grey);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 h2 {
@@ -56,7 +65,8 @@ body {
 
 /* -------------- Header --------------------------*/
 .header {
-  background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6) ), url('/assets/come-on.jpg') center center no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)),
+    url("/assets/come-on.jpg") center center no-repeat;
   background-size: cover;
   /* height: 100%; */
   /* overflow: hidden; */
@@ -74,9 +84,15 @@ body {
   font-size: 12px;
   font-weight: 400;
   padding-bottom: 5px;
-  padding-top: 5px;
-  margin-bottom: 20px;
-  color: rgb(126, 126, 126);
+  padding-top: 10px;
+  margin-bottom: 0;
+  color: var(--white);
+  background: var(--grey);
+}
+
+.header-language {
+  text-align: right;
+  width: 100%;
 }
 
 .logo {
@@ -93,7 +109,7 @@ body {
 }
 
 .logo .add {
-  font-family: 'Gochi Hand', cursive;
+  font-family: "Gochi Hand", cursive;
   transform: rotate(-0.03turn);
   position: relative;
   top: -39px;
@@ -145,10 +161,41 @@ button.button:hover {
   margin: 10px auto;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 680px) {
   .header-bottom {
     grid-auto-flow: row;
     padding: 10px var(--side-padding);
+    margin-bottom: 20px;
+  }
+
+  .header-bottom a {
+    justify-self: center;
+  }
+
+  .header-bottom .logo {
+    margin: 0 0 0 20px;
+  }
+
+  .content .form-box {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .footer .footer-content {
+    grid-auto-flow: row;
+    grid-gap: 30px;
+    justify-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .content .wells {
+    grid-auto-flow: row;
+  }
+
+  .content .services {
+    grid-auto-flow: row;
   }
 }
 
@@ -163,9 +210,9 @@ button.button:hover {
   font-size: 30px;
   text-align: right;
   text-transform: uppercase;
-  font-weight: 800;  
-  color: var(--white);  
-  text-shadow: 2px 2px 0px var(--black);  
+  font-weight: 800;
+  color: var(--white);
+  text-shadow: 2px 2px 0px var(--black);
 }
 
 .hero .text {
@@ -175,7 +222,7 @@ button.button:hover {
   text-align: justify;
 }
 
-.hero button {
+.hero a {
   justify-self: end;
 }
 
@@ -200,23 +247,28 @@ button.button:hover {
 }
 
 .service.canada {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("assets/canada1.jpg") center center no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("assets/canada1.jpg") center center no-repeat;
 }
 
 .service.surfer {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("assets/surfer.jpg") center center no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("assets/surfer.jpg") center center no-repeat;
 }
 
 .service.girl {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("assets/girl-in-front-of-sea.jpg") center center no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("assets/girl-in-front-of-sea.jpg") center center no-repeat;
 }
 
 .service.globe {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("assets/globe.jpg") center center no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("assets/globe.jpg") center center no-repeat;
 }
 
 .service.beach {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("assets/beach-entrance.jpg") center center no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("assets/beach-entrance.jpg") center center no-repeat;
 }
 
 .wells {
@@ -240,11 +292,14 @@ button.button:hover {
 .well button {
   border: none;
   margin-top: 5px;
-  justify-self: end;
   cursor: pointer;
   background: var(--white);
   padding: 5px 10px;
   font-size: 14px;
+}
+
+.well a {
+  justify-self: end;
 }
 
 .well button:hover {
@@ -256,7 +311,7 @@ button.button:hover {
   margin-bottom: 5px;
 }
 
-.content .form-box {
+.form-box {
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-gap: 20px;
@@ -289,7 +344,7 @@ button.button:hover {
   border: 2px solid rgb(180, 180, 180);
 }
 
-.content .form-box input[type=submit] {
+.content .form-box input[type="submit"] {
   background: var(--white);
   justify-self: end;
   margin-top: 20px;
@@ -299,7 +354,7 @@ button.button:hover {
   border: none !important;
 }
 
-.content .form-box input[type=submit]:hover {
+.content .form-box input[type="submit"]:hover {
   background: var(--grey);
   color: white;
 }
@@ -353,7 +408,7 @@ button.button:hover {
 
 .button-main:hover {
   background: var(--grey) !important;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
   border: none !important;
 }
 
@@ -361,7 +416,7 @@ button.button:hover {
   margin-top: var(--content-margin);
   /* padding: 10px 0 0 0; */
   background: var(--grey);
-  color: rgba(255,255,255,0.5);
+  color: rgba(255, 255, 255, 0.5);
   line-height: 28px;
   font-weight: 400;
   font-size: 14px;
@@ -378,9 +433,17 @@ button.button:hover {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 30px;
   padding-top: 10px;
   text-align: right;
 }
 
+.footer a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer a:hover {
+  color: var(--white);
+  text-decoration: none;
+}
