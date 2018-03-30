@@ -96,26 +96,11 @@ body {
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: 800;
-  font-style: italic;
-  display: grid;
-  grid-template-columns: repeat(2, auto);
+  max-width: 150px;
 }
 
-.logo > div {
-  grid-column-start: 1;
-  grid-column-end: 1;
-}
-
-.logo .add {
-  font-family: "Gochi Hand", cursive;
-  transform: rotate(-0.03turn);
-  position: relative;
-  top: -39px;
-  left: 79px;
-  /* opacity: 0.7; */
-  color: var(--blue);
+.logo img {
+  width: 100%;
 }
 
 .header-language {
