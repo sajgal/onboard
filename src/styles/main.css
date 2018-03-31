@@ -1,0 +1,455 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600,800|Gochi+Hand');
+
+:root {
+  --white: whitesmoke;
+  --black: rgb(22, 22, 22);
+  --grey: #1f2020;
+  --blue: #117688;
+  --content-margin: 70px;
+  --side-padding: 20px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a {
+  color: var(--grey);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: var(--black);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.07);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+}
+
+.fa {
+  margin-left: 5px;
+}
+
+.site-wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  min-height: 100vh;
+  /* grid-template-rows: repeat(2, auto) 250px; */
+  /* grid-gap: 30px; */
+}
+
+.site-width {
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.content {
+  margin-top: var(--content-margin);
+}
+
+/* -------------- Header --------------------------*/
+.header {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)),
+    url('../assets/come-on.jpg') center center no-repeat;
+  background-size: cover;
+  /* height: 100%; */
+  /* overflow: hidden; */
+  min-height: 400px;
+  /* padding: 10px 50px 0 50px; */
+  /* display: grid;
+  grid-template-rows: auto  auto 1fr;   */
+  display: flex;
+}
+
+.header-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  /* border-bottom: 1px solid rgb(175, 175, 175); */
+  font-size: 12px;
+  font-weight: 400;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  margin-bottom: 0;
+  color: var(--white);
+  background: var(--grey);
+}
+
+.header-language {
+  text-align: right;
+  width: 100%;
+}
+
+.logo {
+  max-width: 150px;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.header-language {
+  justify-self: right;
+}
+
+.button-smol {
+  border: 0;
+  background: transparent;
+  font-size: 15px;
+  letter-spacing: 1.1px;
+  padding: 3px 5px;
+  cursor: pointer;
+  color: var(--grey);
+}
+
+button.button {
+  border: none;
+  background: white;
+  font-size: 15px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.button:hover {
+  color: white;
+  background: var(--grey);
+}
+
+.button-smol:hover {
+  border-bottom: 1px solid var(--grey);
+  /* background: var(--grey); */
+  color: black;
+}
+
+.header-bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-gap: 20px;
+  margin: 10px auto;
+}
+
+@media (max-width: 680px) {
+  .header-bottom {
+    grid-auto-flow: row;
+    padding: 10px var(--side-padding);
+    margin-bottom: 20px;
+  }
+
+  .header-bottom a {
+    justify-self: center;
+  }
+
+  .header-bottom .logo {
+    margin: 0 0 0 20px;
+  }
+
+  .content .form-box {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .footer .footer-content {
+    grid-auto-flow: row;
+    grid-gap: 30px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer .footer-bottom .created-by {
+    display: block;
+  }
+
+  .footer .footer-bottom .created-by::before {
+    content: '';
+  }
+}
+
+@media (max-width: 550px) {
+  .content .wells {
+    grid-auto-flow: row;
+  }
+
+  .content .services {
+    grid-auto-flow: row;
+  }
+}
+
+.hero {
+  align-self: flex-end;
+  justify-self: right;
+  padding-bottom: 20px;
+  display: grid;
+}
+
+.hero h2 {
+  font-size: 30px;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--white);
+  text-shadow: 2px 2px 0px var(--black);
+}
+
+.hero .text {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.hero a {
+  justify-self: end;
+}
+
+.services {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  margin: 20px 0 0 0;
+}
+
+.service {
+  min-height: 100px;
+  width: 100%;
+  justify-content: center;
+  display: grid;
+  align-content: center;
+  background: var(--grey);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 18px;
+  background-size: cover !important;
+}
+
+.service.canada {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../assets/canada1.jpg') center center no-repeat;
+}
+
+.service.surfer {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../assets/surfer.jpg') center center no-repeat;
+}
+
+.service.girl {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../assets/girl-in-front-of-sea.jpg') center center no-repeat;
+}
+
+.service.globe {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../assets/globe.jpg') center center no-repeat;
+}
+
+.service.beach {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../assets/beach-entrance.jpg') center center no-repeat;
+}
+
+.wells {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 25px;
+}
+
+.wells .well {
+  /* border: 1px solid rgba(0,0,0,0.2); */
+  padding: 20px;
+  display: grid;
+  background: white;
+}
+
+.well img {
+  max-width: 100%;
+  background-size: cover;
+}
+
+.well button {
+  border: none;
+  margin-top: 5px;
+  cursor: pointer;
+  background: var(--white);
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.well a {
+  justify-self: end;
+}
+
+.well button:hover {
+  background: var(--grey);
+  color: white;
+}
+
+.well h3 {
+  margin-bottom: 5px;
+}
+
+.form-box {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 20px;
+}
+
+.content .form-box form#contact {
+  display: grid;
+  background: white;
+  padding: 10px 20px;
+}
+
+.content .form-box form#contact label {
+  margin: 20px 0 0 0;
+}
+
+.content .form-box form#contact > label:nth-child(1) {
+  margin-top: 0;
+}
+
+.content .form-box form#contact input,
+.content .form-box form#contact textarea {
+  padding: 10px 5px;
+  border: 1px solid rgb(180, 180, 180);
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+}
+
+.content .form-box form#contact input:focus,
+.content .form-box form#contact textarea:focus {
+  border: 2px solid rgb(180, 180, 180);
+}
+
+.content .form-box input[type='submit'] {
+  background: var(--white);
+  justify-self: end;
+  margin-top: 20px;
+  /* font-weight: 600; */
+  padding: 10px 35px !important;
+  cursor: pointer;
+  border: none !important;
+}
+
+.content .form-box input[type='submit']:hover {
+  background: var(--grey);
+  color: white;
+}
+
+.articles {
+  display: grid;
+  grid-gap: 30px;
+}
+
+.articles .article {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 3fr;
+}
+
+.article .thumb img {
+  width: 100%;
+}
+
+.article .article-body h3.title {
+  padding: 0;
+  margin: 0;
+}
+
+.article .article-body .published {
+  font-size: 11px;
+  margin-bottom: 20px;
+}
+
+.article .article-body .text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 50px;
+}
+
+.article .article-body .article-read-more {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+  text-decoration: none;
+}
+
+.button-main {
+  border: none;
+  cursor: pointer;
+  background: white;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.button-main:hover {
+  background: var(--grey) !important;
+  color: rgba(255, 255, 255, 0.8);
+  border: none !important;
+}
+
+.footer {
+  margin-top: var(--content-margin);
+  /* padding: 10px 0 0 0; */
+  background: var(--grey);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 28px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.footer-content {
+  display: grid;
+  grid-auto-flow: column;
+  padding-top: 20px;
+}
+
+.footer-content .logo {
+  color: var(--white);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 30px;
+  padding-top: 10px;
+  text-align: right;
+}
+
+.footer a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer a:hover {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer .created-by {
+  display: inline-block;
+}
+
+.footer .created-by::before {
+  content: ' · ';
+}
