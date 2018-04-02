@@ -9,3 +9,4 @@ yarn-error.log
 
 .history
 .DS_Store
+.env
