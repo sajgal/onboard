@@ -10,7 +10,9 @@ const SecondSection = props => {
       <Link to={box.link} key={box.link}>
         {box.text}
       </Link>
-      <Img sizes={box.image.sizes} />
+      <div className="img">
+        <Img sizes={box.image.sizes} />
+      </div>
     </div>
   ))
 

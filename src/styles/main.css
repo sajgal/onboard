@@ -235,19 +235,17 @@ button.button:hover {
   min-height: 100px;
   max-height: 100px;
   width: 100%;
-  justify-content: center;
   display: grid;
   align-content: center;
   background: var(--grey);
   color: var(--white);
   text-decoration: none;
   font-size: 18px;
-  /* background-size: cover !important; */
   overflow: hidden;
   align-items: center;
 }
 
-.service img {
+.service .img {
   width: 100%;
   grid-area: 1 / 1 / -1 / -1;
   z-index: 1;
@@ -263,10 +261,6 @@ button.button:hover {
   text-align: center;
   display: grid;
   align-content: center;
-}
-
-.service a:hover {
-  text-decoration: none;
 }
 
 .service.canada {
