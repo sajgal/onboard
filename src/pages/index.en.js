@@ -283,6 +283,12 @@ export const pageQuery = graphql`
               }
             }
           }
+          contactSectionTitle
+          contactSectionText {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }

@@ -4,6 +4,7 @@ import Navigation from '../components/Navigation'
 import Hero from '../components/Hero'
 import HomepageBoxes from '../components/HomepageBoxes'
 import SecondSection from '../components/SecondSection'
+import ContactFormSection from '../components/ContactFormSection'
 
 import 'font-awesome/css/font-awesome.min.css'
 import '../styles/main.css'
@@ -145,36 +146,7 @@ const IndexPage = ({ data, pathContext }) => {
         </div>
       </div>
 
-      <div className="content site-width">
-        <div className="form-box">
-          <div>
-            <h2>Contact Us</h2>
-            Send Us a message. Anything you ever wanted to ask. Anything. This
-            text is just a filler.
-          </div>
-          <form id="contact">
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" id="name" placeholder="Your Name" />
-
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              placeholder="your@email.com"
-            />
-
-            <label htmlFor="text">Message</label>
-            <textarea
-              name="text"
-              id="text"
-              placeholder="Ask anything you want"
-            />
-
-            <input type="submit" value="Send" />
-          </form>
-        </div>
-      </div>
+      <ContactFormSection data={homepage} />
 
       <div className="footer">
         <div className="footer-content site-width">
@@ -281,6 +253,12 @@ export const pageQuery = graphql`
               sizes(maxWidth: 800) {
                 ...GatsbyContentfulSizes
               }
+            }
+          }
+          contactSectionTitle
+          contactSectionText {
+            childMarkdownRemark {
+              html
             }
           }
         }
