@@ -3,8 +3,6 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
 const SecondSection = props => {
-  console.log(props.data)
-
   const boxes = props.data.secondSectionBoxes.map(box => (
     <div className="service" key={box.id}>
       <Link to={box.link} key={box.link}>
