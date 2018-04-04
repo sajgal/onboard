@@ -5,6 +5,7 @@ import Hero from '../components/Hero'
 import HomepageBoxes from '../components/HomepageBoxes'
 import SecondSection from '../components/SecondSection'
 import ContactFormSection from '../components/ContactFormSection'
+import BlogPostList from '../components/BlogPostList'
 
 import 'font-awesome/css/font-awesome.min.css'
 import '../styles/main.css'
@@ -12,140 +13,15 @@ import '../styles/main.css'
 const IndexPage = ({ data, pathContext }) => {
   const navItems = data.allContentfulPage.edges
   const homepage = data.allContentfulHomepage.edges[0].node
+  const blogPosts = data.allContentfulBlog.edges
 
   return (
     <div>
-      <Navigation lang={pathContext.langKey} navItems={navItems} />
+      <Navigation navItems={navItems} />
       <Hero data={homepage} />
       <HomepageBoxes data={homepage.homepageBox} />
       <SecondSection data={homepage} />
-
-      <div className="content site-width">
-        <h2>Lates articles</h2>
-        <div className="articles">
-          <div className="article">
-            <div className="thumb">
-              <a href="#">
-                <img src={require('../assets/surfer.jpg')} alt="" />
-              </a>
-            </div>
-            <div className="article-body">
-              <a href="#">
-                <a href="#">
-                  <h3 className="title">Title of the Article</h3>
-                </a>
-              </a>
-              <div className="published">12.3.2018 12:03:45</div>
-              <div className="text">
-                Bacon ipsum dolor amet brisket buffalo rump ball tip beef ground
-                round salami kevin cupim flank short ribs pork belly jowl
-                capicola. Meatball swine pork, brisket beef ribs porchetta short
-                loin shoulder t-bone. Sirloin leberkas shoulder tri-tip. Turkey
-                short loin t-bone, andouille prosciutto capicola porchetta jowl
-                landjaeger filet mignon bacon sausage. Sausage chicken leberkas
-                pork corned beef kevin cupim turkey tenderloin pork chop.
-              </div>
-              <a href="#" className="article-read-more">
-                <button className="button-main">
-                  Read more
-                  <i className="fa fa-angle-right" />
-                </button>
-              </a>
-            </div>
-          </div>
-
-          <div className="article">
-            <div className="thumb">
-              <a href="#">
-                <img
-                  src={require('../assets/girl-in-front-of-sea.jpg')}
-                  alt=""
-                />
-              </a>
-            </div>
-            <div className="article-body">
-              <a href="#">
-                <h3 className="title">Title of the Article</h3>
-              </a>
-              <div className="published">12.3.2018 12:03:45</div>
-              <div className="text">
-                Bacon ipsum dolor amet brisket buffalo rump ball tip beef ground
-                round salami kevin cupim flank short ribs pork belly jowl
-                capicola. Meatball swine pork, brisket beef ribs porchetta short
-                loin shoulder t-bone. Sirloin leberkas shoulder tri-tip. Turkey
-                short loin t-bone, andouille prosciutto capicola porchetta jowl
-                landjaeger filet mignon bacon sausage. Sausage chicken leberkas
-                pork corned beef kevin cupim turkey tenderloin pork chop.
-              </div>
-              <a href="#" className="article-read-more">
-                <button className="button-main">
-                  Read more
-                  <i className="fa fa-angle-right" />
-                </button>
-              </a>
-            </div>
-          </div>
-
-          <div className="article">
-            <div className="thumb">
-              <a href="#">
-                <img src={require('../assets/beach-entrance.jpg')} alt="" />
-              </a>
-            </div>
-            <div className="article-body">
-              <a href="#">
-                <h3 className="title">Title of the Article</h3>
-              </a>
-              <div className="published">12.3.2018 12:03:45</div>
-              <div className="text">
-                Bacon ipsum dolor amet brisket buffalo rump ball tip beef ground
-                round salami kevin cupim flank short ribs pork belly jowl
-                capicola. Meatball swine pork, brisket beef ribs porchetta short
-                loin shoulder t-bone. Sirloin leberkas shoulder tri-tip. Turkey
-                short loin t-bone, andouille prosciutto capicola porchetta jowl
-                landjaeger filet mignon bacon sausage. Sausage chicken leberkas
-                pork corned beef kevin cupim turkey tenderloin pork chop.
-              </div>
-              <a href="#" className="article-read-more">
-                <button className="button-main">
-                  Read more
-                  <i className="fa fa-angle-right" />
-                </button>
-              </a>
-            </div>
-          </div>
-
-          <div className="article">
-            <div className="thumb">
-              <a href="#">
-                <img src={require('../assets/globe.jpg')} alt="" />
-              </a>
-            </div>
-            <div className="article-body">
-              <a href="#">
-                <h3 className="title">Title of the Article</h3>
-              </a>
-              <div className="published">12.3.2018 12:03:45</div>
-              <div className="text">
-                Bacon ipsum dolor amet brisket buffalo rump ball tip beef ground
-                round salami kevin cupim flank short ribs pork belly jowl
-                capicola. Meatball swine pork, brisket beef ribs porchetta short
-                loin shoulder t-bone. Sirloin leberkas shoulder tri-tip. Turkey
-                short loin t-bone, andouille prosciutto capicola porchetta jowl
-                landjaeger filet mignon bacon sausage. Sausage chicken leberkas
-                pork corned beef kevin cupim turkey tenderloin pork chop.
-              </div>
-              <a href="#" className="article-read-more">
-                <button className="button-main">
-                  Read more
-                  <i className="fa fa-angle-right" />
-                </button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <BlogPostList posts={blogPosts} lang={pathContext.langKey} />
       <ContactFormSection data={homepage} />
 
       <div className="footer">
@@ -271,6 +147,30 @@ export const pageQuery = graphql`
           node_locale
           title
           id
+        }
+      }
+    }
+    allContentfulBlog(
+      filter: { node_locale: { eq: "sk" } }
+      sort: { fields: [createdAt], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          title
+          slug
+          node_locale
+          createdAt(formatString: "DD.MM.YYYY")
+          featuredImage {
+            resolutions(width: 255) {
+              ...GatsbyContentfulResolutions
+            }
+          }
+          content {
+            childMarkdownRemark {
+              excerpt
+            }
+          }
         }
       }
     }
