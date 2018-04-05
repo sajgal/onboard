@@ -440,6 +440,10 @@ button.button:hover {
   font-size: 14px;
 }
 
+.footer p {
+  margin: 0 0 15px 0;
+}
+
 .footer-content {
   display: grid;
   grid-auto-flow: column;

@@ -34,7 +34,7 @@ export const pageQuery = graphql`
   query PageQuery($slug: String!) {
     contentfulPage(slug: { eq: $slug }) {
       title
-      createdAt(formatString: "MMMM DD, YYYY")
+      createdAt(formatString: "DD.MM.YYYY")
       body {
         childMarkdownRemark {
           html

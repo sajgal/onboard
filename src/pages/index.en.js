@@ -6,6 +6,7 @@ import HomepageBoxes from '../components/HomepageBoxes'
 import SecondSection from '../components/SecondSection'
 import ContactFormSection from '../components/ContactFormSection'
 import BlogPostList from '../components/BlogPostList'
+import Footer from '../components/Footer'
 
 import 'font-awesome/css/font-awesome.min.css'
 import '../styles/main.css'
@@ -23,62 +24,7 @@ const IndexPage = ({ data, pathContext }) => {
       <SecondSection data={homepage} />
       <BlogPostList posts={blogPosts} lang={pathContext.langKey} />
       <ContactFormSection data={homepage} />
-
-      <div className="footer">
-        <div className="footer-content site-width">
-          <div>
-            <div className="logo">OnBoard</div>
-          </div>
-          <div>
-            492 Near beach road
-            <br /> 2009 Pyrmont
-            <br />
-            <br /> zuzka@onboardstudy.sk
-          </div>
-          <div className="footer-menu">
-            <div>
-              <a href="#">About Us</a>
-            </div>
-            <div>
-              <a href="#">Austradiva</a>
-            </div>
-            <div>
-              <a href="#">New Zealand</a>
-            </div>
-            <div>
-              <a href="#">Canada</a>
-            </div>
-            <div>
-              <a href="#">Contact</a>
-            </div>
-          </div>
-          <div>
-            <div>
-              <a href="#">
-                <i className="fa fa-facebook-square" /> OnBoard
-              </a>
-            </div>
-            <div>
-              <a href="#">
-                <i className="fa fa-twitter-square" /> @OnBoard
-              </a>
-            </div>
-            <div>
-              <a href="#">
-                <i className="fa fa-instagram" /> @OnBoard
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom site-width">
-          <div>
-            &copy; 2018 &middot; OnBoard Study{' '}
-            <div className="created-by">
-              Created by <a href="#">sajgal.com</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Footer data={homepage} navItems={navItems} />
     </div>
   )
 }
@@ -136,6 +82,17 @@ export const pageQuery = graphql`
             childMarkdownRemark {
               html
             }
+          }
+          footerContacts {
+            childMarkdownRemark {
+              html
+            }
+          }
+          footerSocialLinks {
+            id
+            text
+            link
+            type
           }
         }
       }
