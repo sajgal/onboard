@@ -1,11 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
+import { FormattedMessage } from 'react-intl'
 
 const BlogPostList = props => {
   const postList = props.posts.map(postNode => {
     const post = postNode.node
-    const postLink = `/${post.node_locale}/blog/${post.slug}`;
+    const postLink = `/${post.node_locale}/blog/${post.slug}`
 
     return (
       <div className="article" key={post.id}>
@@ -33,7 +34,9 @@ const BlogPostList = props => {
 
   return (
     <div className="content site-width">
-      <h2>Lates articles</h2>
+      <h2>
+        <FormattedMessage id="latestArticles" />
+      </h2>
       <div className="articles">{postList}</div>
     </div>
   )

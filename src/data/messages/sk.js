@@ -6,4 +6,5 @@ module.exports = {
   'message': 'Správa',
   'messagePlaceholder': 'Spýtajte sa nás čokoľvek',
   'send': 'Odoslať',
+  'latestArticles': 'Články',
 };
