@@ -3,7 +3,10 @@ import Link from 'gatsby-link'
 
 const Navigation = props => {
   const localeNavigation = props.navItems.map(item => (
-    <Link to={`/${item.node.node_locale}/${item.node.slug}/`} key={item.node.id} >
+    <Link
+      to={`/${item.node.node_locale}/${item.node.slug}/`}
+      key={item.node.id}
+    >
       <button className="button-smol">{item.node.title}</button>
     </Link>
   ))
@@ -11,7 +14,9 @@ const Navigation = props => {
   return (
     <div className="header-bottom site-width">
       <div className="logo">
-        <img src={require('../assets/on-board-logo.svg')} alt="onBoard" />
+        <Link to={`/${props.lang}/`}>
+          <img src={require('../assets/on-board-logo.svg')} alt="onBoard" />
+        </Link>
       </div>
       {localeNavigation}
     </div>

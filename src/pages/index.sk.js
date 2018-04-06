@@ -18,7 +18,7 @@ const IndexPage = ({ data, pathContext }) => {
 
   return (
     <div>
-      <Navigation navItems={navItems} />
+      <Navigation navItems={navItems} lang={pathContext.langKey} />
       <Hero data={homepage} />
       <HomepageBoxes data={homepage.homepageBox} />
       <SecondSection data={homepage} />

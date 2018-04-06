@@ -3,10 +3,9 @@ import Link from 'gatsby-link'
 
 const Footer = props => {
   const localeNavigation = props.navItems.map(item => (
-    <div>
+    <div key={item.node.id}>
       <Link
         to={`/${item.node.node_locale}/${item.node.slug}/`}
-        key={item.node.id}
       >
         {item.node.title}
       </Link>
@@ -14,8 +13,8 @@ const Footer = props => {
   ))
 
   const socialLinks = props.data.footerSocialLinks.map(item => (
-    <div>
-      <a href={item.link} key={item.id} target="__blank">
+    <div key={item.id}>
+      <a href={item.link} target="__blank">
         <i
           className={`fa fa-${
             item.type === 'facebook' ? 'facebook-square' : item.type

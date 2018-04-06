@@ -20,7 +20,6 @@ const TemplateWrapper = ({ children, data, location }) => {
   const langKey = getCurrentLangKey(langs, defaultLangKey, url)
   const homeLink = `/${langKey}/`
   const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url))
-
   const i18nMessages = require(`../data/messages/${langKey}`);
 
   return (

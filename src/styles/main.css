@@ -93,6 +93,7 @@ body {
   margin-bottom: 0;
   color: var(--white);
   background: var(--grey);
+  max-height: 35px;
 }
 
 .header-language {

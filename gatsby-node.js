@@ -30,6 +30,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             context: {
               slug: edge.node.slug,
               id: edge.node.id,
+              langKey: edge.node.node_locale,
             },
           })
         })
@@ -57,7 +58,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             path: `/${edge.node.node_locale}/blog/${edge.node.slug}/`,
             component: blogPostTemplate,
             context: {
-              slug: edge.node.slug
+              slug: edge.node.slug,
+              langKey: edge.node.node_locale,
             }
           });
         });
