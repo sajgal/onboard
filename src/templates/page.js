@@ -6,15 +6,29 @@ import Footer from '../components/Footer'
 
 class Page extends Component {
   render() {
-    const { title, createdAt, body } = this.props.data.contentfulPage
+    const {
+      title,
+      createdAt,
+      body,
+      featuredImage,
+    } = this.props.data.contentfulPage
     const navItems = this.props.data.allContentfulPage.edges
     const homepage = this.props.data.allContentfulHomepage.edges[0].node
 
     return (
-      <div>
+      <div className="page-content">
         <Navigation navItems={navItems} lang={this.props.pathContext.langKey} />
+
+        <div className="featured-image-box-full">
+          <div className="site-width">
+            <h1>{title}</h1>
+          </div>
+          <div className="img gradient">
+            <Img sizes={featuredImage.sizes} />
+          </div>
+        </div>
+
         <div className="site-width">
-          <h1>{title}</h1>
           <div
             dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}
           />
@@ -40,8 +54,15 @@ export const pageQuery = graphql`
           html
         }
       }
+      featuredImage {
+        sizes(maxWidth: 5000) {
+          ...GatsbyContentfulSizes
+        }
+      }
     }
-    allContentfulPage(filter: { node_locale: { eq: $langKey } }) {
+    allContentfulPage(
+      filter: { node_locale: { eq: $langKey }, showInMenu: { eq: true } }
+    ) {
       edges {
         node {
           slug

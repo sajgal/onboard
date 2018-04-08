@@ -97,7 +97,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulPage(filter: { node_locale: { eq: "en" } }) {
+    allContentfulPage(filter: { node_locale: { eq: "en" }, showInMenu: { eq: true } }) {
       edges {
         node {
           slug

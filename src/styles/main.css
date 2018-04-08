@@ -53,8 +53,7 @@ body {
   display: grid;
   grid-auto-flow: row;
   min-height: 100vh;
-  /* grid-template-rows: repeat(2, auto) 250px; */
-  /* grid-gap: 30px; */
+  grid-template-rows: 35px auto;
 }
 
 .site-width {
@@ -93,7 +92,6 @@ body {
   margin-bottom: 0;
   color: var(--white);
   background: var(--grey);
-  max-height: 35px;
 }
 
 .header-language {
@@ -233,8 +231,7 @@ button.button:hover {
 }
 
 .service {
-  min-height: 100px;
-  max-height: 100px;
+  height: 100px;
   width: 100%;
   display: grid;
   align-content: center;
@@ -250,7 +247,7 @@ button.button:hover {
   width: 100%;
   grid-area: 1 / 1 / -1 / -1;
   z-index: 1;
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .service a {
@@ -477,4 +474,53 @@ button.button:hover {
 
 .footer .created-by::before {
   content: ' · ';
+}
+
+.page-content,
+.blog-content {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.featured-image-box-full {
+  height: 400px;
+  width: 100%;
+  display: grid;
+  align-content: center;
+  background: var(--grey);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 18px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.featured-image-box-full .img {
+  height: 400px;
+  grid-area: 1 / 1 / -1 / -1;
+  z-index: 1;
+  opacity: .6;
+}
+
+.featured-image-box-full div {
+  grid-area: 1 / 1 / -1 / -1;
+  z-index: 2;
+  height: 400px;
+  color: var(--white);
+  align-items: end;
+  display: grid;
+}
+
+.title-holder h1 {
+  margin-bottom: 0;
+  line-height: 25px;
+}
+
+.title-holder > span {
+  margin-bottom: 20px;
+}
+
+.title-holder .date {
+  font-size: 14px;
+  padding-bottom: 10px;
 }

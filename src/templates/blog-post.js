@@ -16,11 +16,22 @@ class BlogPost extends Component {
     const homepage = this.props.data.allContentfulHomepage.edges[0].node
 
     return (
-      <div>
+      <div className="page-content">
         <Navigation navItems={navItems} lang={this.props.pathContext.langKey} />
+
+        <div className="featured-image-box-full">
+          <div className="site-width title-holder">
+          <span>
+            <h1>{title}</h1>
+            <span className="date">{createdAt}</span>
+            </span>
+          </div>
+          <div className="img gradient">
+            <Img sizes={featuredImage.sizes} />
+          </div>
+        </div>
+
         <div className="site-width">
-          <h1>{title}</h1>
-          <p>{createdAt}</p>
           <div
             dangerouslySetInnerHTML={{
               __html: content.childMarkdownRemark.html,
@@ -43,9 +54,9 @@ export const pageQuery = graphql`
   query blogPostQuery($slug: String!, $langKey: String!) {
     contentfulBlog(slug: { eq: $slug }) {
       title
-      createdAt(formatString: "MMMM DD, YYYY")
+      createdAt(formatString: "DD.MM.YYYY")
       featuredImage {
-        sizes(maxWidth: 800) {
+        sizes(maxWidth: 2000) {
           ...GatsbyContentfulSizes
         }
       }
@@ -55,7 +66,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulPage(filter: { node_locale: { eq: $langKey } }) {
+    allContentfulPage(
+      filter: { node_locale: { eq: $langKey }, showInMenu: { eq: true } }
+    ) {
       edges {
         node {
           slug
