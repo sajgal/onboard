@@ -26,10 +26,10 @@ const TemplateWrapper = ({ children, data, location }) => {
     <IntlProvider locale={langKey} messages={i18nMessages}>
       <div className="site-wrapper">
         <Helmet
-          title="Gatsby Default Starter"
+          title="OnBoard Study"
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'description', content: 'Study agency Australia' },
+            { name: 'keywords', content: 'study, agency' },
           ]}
         />
         <HeaderTop langs={langsMenu} />
