@@ -4,9 +4,7 @@ import Link from 'gatsby-link'
 const Footer = props => {
   const localeNavigation = props.navItems.map(item => (
     <div key={item.node.id}>
-      <Link
-        to={`/${item.node.node_locale}/${item.node.slug}/`}
-      >
+      <Link to={`/${item.node.node_locale}/${item.node.slug}/`}>
         {item.node.title}
       </Link>
     </div>
@@ -37,15 +35,26 @@ const Footer = props => {
           }}
         />
         <div className="footer-menu">{localeNavigation}</div>
-        <div>
-          {socialLinks}
-        </div>
+        <div>{socialLinks}</div>
       </div>
       <div className="footer-bottom site-width">
         <div>
-          &copy; {(new Date().getFullYear())} &middot; OnBoard Study{' '}
+          &copy; {new Date().getFullYear()} &middot; OnBoard Study{' '}
           <div className="created-by">
             Created by <a href="https://www.sajgal.com">sajgal.com</a>
+          </div>
+          <div className="contentful">
+            <a
+              href="https://www.contentful.com/"
+              rel="nofollow"
+              target="_blank"
+            >
+              <img
+                src="https://images.contentful.com/fo9twyrwpveg/7Htleo27dKYua8gio8UEUy/0797152a2d2f8e41db49ecbf1ccffdaa/PoweredByContentful_DarkBackground_MonochromeLogo.svg"
+                style={{ maxWidth: '100px', width: '100%' }}
+                alt="Powered by Contentful"
+              />
+            </a>
           </div>
         </div>
       </div>

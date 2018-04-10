@@ -200,12 +200,14 @@ button.button:hover {
     text-align: center;
   }
 
-  .footer .footer-bottom .created-by {
-    display: block;
+  .footer .footer-bottom > div {
+    grid-auto-flow: row;
+    justify-content: center;
+    justify-items: center;
   }
 
-  .footer .footer-bottom .created-by::before {
-    content: '';
+  .footer .footer-bottom .contentful {
+    width: 100px;
   }
 }
 
@@ -492,12 +494,21 @@ button.button:hover {
   text-decoration: none;
 }
 
+.footer-bottom > div {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: flex-end;
+  grid-gap: 10px;
+}
+
 .footer .created-by {
   display: inline-block;
 }
 
-.footer .created-by::before {
-  content: ' · ';
+.footer-bottom .contentful {
+  width: 108px;
+  display: inline-block;
 }
 
 .page-content,
