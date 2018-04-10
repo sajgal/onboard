@@ -99,6 +99,29 @@ body {
   width: 100%;
 }
 
+.header-language i {
+  margin-right: 2px;
+  color: grey;
+}
+
+.header-language .not-selected {
+  padding: 0 5px;
+  color: grey;
+}
+
+.header-language a {
+  padding: 0 5px;
+  color: var(--white);
+}
+
+.header-language a:hover {
+  
+}
+
+.header-language a.selected {
+  
+}
+
 .logo {
   max-width: 150px;
 }
@@ -300,8 +323,9 @@ button.button:hover {
   max-width: 337px;
 }
 
+.well > a.img,
 .well img {
-  max-width: 100%;
+  width: 100%;
   background-size: cover;
 }
 
@@ -513,7 +537,7 @@ button.button:hover {
 
 .title-holder h1 {
   margin-bottom: 0;
-  line-height: 25px;
+  line-height: 38px;
 }
 
 .title-holder > span {

@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 const SecondSection = props => {
   const boxes = props.data.secondSectionBoxes.map(box => (
     <div className="service" key={box.id}>
-      <Link to={box.link} key={box.link}>
+      <Link to={`/${props.lang}/${box.link}`} key={box.link}>
         {box.text}
       </Link>
       <div className="img">

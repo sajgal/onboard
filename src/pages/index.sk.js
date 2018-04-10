@@ -20,8 +20,8 @@ const IndexPage = ({ data, pathContext }) => {
     <div>
       <Navigation navItems={navItems} lang={pathContext.langKey} />
       <Hero data={homepage} />
-      <HomepageBoxes data={homepage.homepageBox} />
-      <SecondSection data={homepage} />
+      <HomepageBoxes data={homepage.homepageBox} lang={pathContext.langKey} />
+      <SecondSection data={homepage} lang={pathContext.langKey} />
       <BlogPostList posts={blogPosts} lang={pathContext.langKey} />
       <ContactFormSection data={homepage} />
       <Footer data={homepage} navItems={navItems} />

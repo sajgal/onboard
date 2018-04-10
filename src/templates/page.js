@@ -47,7 +47,7 @@ export default Page
 
 export const pageQuery = graphql`
   query PageQuery($slug: String!, $langKey: String!) {
-    contentfulPage(slug: { eq: $slug }) {
+    contentfulPage(slug: { eq: $slug }, node_locale: { eq: $langKey }) {
       title
       body {
         childMarkdownRemark {
@@ -59,6 +59,7 @@ export const pageQuery = graphql`
           ...GatsbyContentfulSizes
         }
       }
+      node_locale
     }
     allContentfulPage(
       filter: { node_locale: { eq: $langKey }, showInMenu: { eq: true } }

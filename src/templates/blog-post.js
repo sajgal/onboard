@@ -52,7 +52,7 @@ export default BlogPost
 
 export const pageQuery = graphql`
   query blogPostQuery($slug: String!, $langKey: String!) {
-    contentfulBlog(slug: { eq: $slug }) {
+    contentfulBlog(slug: { eq: $slug }, node_locale: { eq: $langKey }) {
       title
       createdAt(formatString: "DD.MM.YYYY")
       featuredImage {

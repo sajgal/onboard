@@ -13,7 +13,7 @@ const ContactFormSection = props => {
             }}
           />
         </div>
-        <form id="contact">
+        <form id="contact" name="contact" method="POST" data-netlify="true">
           <label htmlFor="name">
             <FormattedMessage id="name" />
           </label>
@@ -32,11 +32,11 @@ const ContactFormSection = props => {
             )}
           </FormattedMessage>
 
-          <label htmlFor="text">
+          <label htmlFor="message">
             <FormattedMessage id="message" />
           </label>
           <FormattedMessage id="messagePlaceholder">
-            {text => <textarea name="text" id="text" placeholder={text} />}
+            {text => <textarea name="message" id="text" placeholder={text} />}
           </FormattedMessage>
 
           <FormattedMessage id="send">
