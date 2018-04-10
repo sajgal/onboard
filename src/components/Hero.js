@@ -13,7 +13,7 @@ const Hero = props => {
           }}
         />
         <Link
-          to={props.data.heroButtonLink}
+          to={`/${props.data.node_locale}/${props.data.heroButtonLink}`}
           key={props.data.heroButtonLink}
         >
           <button className="button">
