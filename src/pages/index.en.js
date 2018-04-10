@@ -97,7 +97,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulPage(filter: { node_locale: { eq: "en" }, showInMenu: { eq: true } }) {
+    allContentfulPage(
+      filter: { node_locale: { eq: "en" }, showInMenu: { eq: true } }
+    ) {
       edges {
         node {
           slug
@@ -110,6 +112,7 @@ export const pageQuery = graphql`
     allContentfulBlog(
       filter: { node_locale: { eq: "en" } }
       sort: { fields: [createdAt], order: DESC }
+      limit: 5
     ) {
       edges {
         node {
