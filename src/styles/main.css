@@ -70,13 +70,13 @@ body {
 
 /* -------------- Header --------------------------*/
 .header {
-  height: var(--hero-height);
+  max-height: var(--hero-height);
   display: grid;
   overflow: hidden;
 }
 
 .header .img {
-  height: var(--hero-height);
+  max-height: var(--hero-height);
   grid-area: 1 / 1 / -1 / -1;
   z-index: 1;
   display: grid;
@@ -84,11 +84,21 @@ body {
 }
 
 .header .gradient {
-  height: var(--hero-height);
+  max-height: var(--hero-height);
   grid-area: 1 / 1 / -1 / -1;
   z-index: 1;
   background: linear-gradient(transparent, var(--grey));
   opacity: .6;
+}
+
+.hero {
+  align-self: flex-end;
+  justify-self: right;
+  padding-bottom: 20px;
+  display: grid;
+  grid-area: 1 / 1 / -1 / -1;
+  z-index: 2;
+  max-height: var(--hero-height);
 }
 
 .header-top {
@@ -213,6 +223,10 @@ button.button:hover {
 }
 
 @media (max-width: 550px) {
+  .header .img {
+    width: 190%;
+  }
+  
   .content .wells {
     grid-auto-flow: row;
   }
@@ -220,15 +234,6 @@ button.button:hover {
   .content .services {
     grid-auto-flow: row;
   }
-}
-
-.hero {
-  align-self: flex-end;
-  justify-self: right;
-  padding-bottom: 20px;
-  display: grid;
-  grid-area: 1 / 1 / -1 / -1;
-  z-index: 2;
 }
 
 .hero h2 {
