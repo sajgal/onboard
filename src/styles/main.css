@@ -226,13 +226,22 @@ button.button:hover {
   .header .img {
     width: 190%;
   }
-  
+
   .content .wells {
     grid-auto-flow: row;
   }
 
+  .content .wells .well {
+    max-width: initial;
+  }
+
   .content .services {
     grid-auto-flow: row;
+  }
+
+  .content .articles .article {
+    grid-auto-flow: row;
+    grid-template-columns: auto;
   }
 }
 
