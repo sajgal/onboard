@@ -7,6 +7,7 @@
   --blue: #117688;
   --content-margin: 70px;
   --side-padding: 20px;
+  --hero-height: 450px;
 }
 
 *,
@@ -69,22 +70,30 @@ body {
 
 /* -------------- Header --------------------------*/
 .header {
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)),
-    url('../assets/come-on.jpg') center center no-repeat;
-  background-size: cover;
-  /* height: 100%; */
-  /* overflow: hidden; */
-  min-height: 400px;
-  /* padding: 10px 50px 0 50px; */
-  /* display: grid;
-  grid-template-rows: auto  auto 1fr;   */
-  display: flex;
+  height: var(--hero-height);
+  display: grid;
+  overflow: hidden;
+}
+
+.header .img {
+  height: var(--hero-height);
+  grid-area: 1 / 1 / -1 / -1;
+  z-index: 1;
+  display: grid;
+  align-content: center;
+}
+
+.header .gradient {
+  height: var(--hero-height);
+  grid-area: 1 / 1 / -1 / -1;
+  z-index: 1;
+  background: linear-gradient(transparent, var(--grey));
+  opacity: .6;
 }
 
 .header-top {
   display: grid;
   grid-template-columns: 1fr auto;
-  /* border-bottom: 1px solid rgb(175, 175, 175); */
   font-size: 12px;
   font-weight: 400;
   padding-bottom: 5px;
@@ -112,14 +121,6 @@ body {
 .header-language a {
   padding: 0 5px;
   color: var(--white);
-}
-
-.header-language a:hover {
-  
-}
-
-.header-language a.selected {
-  
 }
 
 .logo {
@@ -226,6 +227,8 @@ button.button:hover {
   justify-self: right;
   padding-bottom: 20px;
   display: grid;
+  grid-area: 1 / 1 / -1 / -1;
+  z-index: 2;
 }
 
 .hero h2 {

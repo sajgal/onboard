@@ -38,6 +38,11 @@ export const pageQuery = graphql`
         node {
           node_locale
           heroTitle
+          heroImage {
+            sizes(maxWidth: 2000) {
+              ...GatsbyContentfulSizes
+            }
+          }
           heroDescription {
             childMarkdownRemark {
               html

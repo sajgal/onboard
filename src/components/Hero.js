@@ -1,9 +1,14 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
 const Hero = props => {
   return (
     <div className="header">
+      <div className="img">
+        <Img sizes={props.data.heroImage.sizes} />
+      </div>
+      <div className="gradient" />
       <div className="hero site-width">
         <h2>{props.data.heroTitle}</h2>
         <div
