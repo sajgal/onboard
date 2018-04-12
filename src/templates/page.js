@@ -12,7 +12,6 @@ class Page extends Component {
       body,
       featuredImage,
     } = this.props.data.contentfulPage
-    const navItems = this.props.data.allContentfulPage.edges
     const homepage = this.props.data.allContentfulHomepage.edges[0].node
     const menuItems = this.props.data.allContentfulMenu.edges
 
@@ -61,18 +60,6 @@ export const pageQuery = graphql`
         }
       }
       node_locale
-    }
-    allContentfulPage(
-      filter: { node_locale: { eq: $langKey }, showInMenu: { eq: true } }
-    ) {
-      edges {
-        node {
-          slug
-          node_locale
-          title
-          id
-        }
-      }
     }
     allContentfulHomepage(filter: { node_locale: { eq: $langKey } }) {
       edges {

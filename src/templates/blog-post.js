@@ -12,7 +12,6 @@ class BlogPost extends Component {
       featuredImage,
       content,
     } = this.props.data.contentfulBlog
-    const navItems = this.props.data.allContentfulPage.edges
     const homepage = this.props.data.allContentfulHomepage.edges[0].node
     const menuItems = this.props.data.allContentfulMenu.edges
 
@@ -64,18 +63,6 @@ export const pageQuery = graphql`
       content {
         childMarkdownRemark {
           html
-        }
-      }
-    }
-    allContentfulPage(
-      filter: { node_locale: { eq: $langKey }, showInMenu: { eq: true } }
-    ) {
-      edges {
-        node {
-          slug
-          node_locale
-          title
-          id
         }
       }
     }

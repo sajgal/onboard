@@ -12,7 +12,6 @@ import 'font-awesome/css/font-awesome.min.css'
 import '../styles/main.css'
 
 const IndexPage = ({ data, pathContext }) => {
-  const navItems = data.allContentfulPage.edges
   const homepage = data.allContentfulHomepage.edges[0].node
   const blogPosts = data.allContentfulBlog.edges
   const menuItems = data.allContentfulMenu.edges
@@ -100,18 +99,6 @@ export const pageQuery = graphql`
             link
             type
           }
-        }
-      }
-    }
-    allContentfulPage(
-      filter: { node_locale: { eq: "en" }, showInMenu: { eq: true } }
-    ) {
-      edges {
-        node {
-          slug
-          node_locale
-          title
-          id
         }
       }
     }
