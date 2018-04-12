@@ -2,10 +2,13 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 const Footer = props => {
-  const localeNavigation = props.navItems.map(item => (
-    <div key={item.node.id}>
-      <Link to={`/${item.node.node_locale}/${item.node.slug}/`}>
-        {item.node.title}
+  const menu = props.menuItems.filter(item => item.node.type === props.menuType)
+  const menuItems = menu[0].node.items
+
+  const localeNavigation = menuItems.map(item => (
+    <div key={item.id}>
+      <Link to={`/${item.node_locale}/${item.link}/`}>
+        {item.text}
       </Link>
     </div>
   ))

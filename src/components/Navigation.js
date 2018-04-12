@@ -2,12 +2,15 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 const Navigation = props => {
-  const localeNavigation = props.navItems.map(item => (
+  const menu = props.menuItems.filter(item => item.node.type === props.menuType)
+  const menuItems = menu[0].node.items
+
+  const localeNavigation = menuItems.map(item => (
     <Link
-      to={`/${item.node.node_locale}/${item.node.slug}/`}
-      key={item.node.id}
+      to={`/${item.node_locale}/${item.link}/`}
+      key={item.id}
     >
-      <button className="button-smol">{item.node.title}</button>
+      <button className="button-smol">{item.text}</button>
     </Link>
   ))
 

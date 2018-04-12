@@ -14,10 +14,11 @@ class Page extends Component {
     } = this.props.data.contentfulPage
     const navItems = this.props.data.allContentfulPage.edges
     const homepage = this.props.data.allContentfulHomepage.edges[0].node
+    const menuItems = this.props.data.allContentfulMenu.edges
 
     return (
       <div className="page-content">
-        <Navigation navItems={navItems} lang={this.props.pathContext.langKey} />
+        <Navigation lang={this.props.pathContext.langKey} menuItems={menuItems} menuType="top" />
 
         <div className="featured-image-box-full">
           <div className="site-width">
@@ -33,7 +34,7 @@ class Page extends Component {
             dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}
           />
         </div>
-        <Footer data={homepage} navItems={navItems} />
+        <Footer data={homepage} menuItems={menuItems} menuType="top" />
       </div>
     )
   }
@@ -87,6 +88,35 @@ export const pageQuery = graphql`
             text
             link
             type
+          }
+        }
+      }
+    }
+    allContentfulMenu (filter: { node_locale: { eq: $langKey } }) {
+      edges {
+        node {
+          id
+          type
+          node_locale
+          items {
+            ... on ContentfulPage { 
+              id
+              link: slug
+              text: title
+              node_locale
+            }
+            ... on ContentfulBlog {
+              id
+              link: slug
+              text: title
+              node_locale
+            }
+            ... on ContentfulImageLink {
+              id
+              link
+              text
+              node_locale
+            }
           }
         }
       }

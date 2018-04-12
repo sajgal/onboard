@@ -6,7 +6,7 @@ const HeaderTop = props => {
   const links = props.langs.map(
     lang =>
       lang.selected ? (
-        <span className="not-selected">
+        <span className="not-selected" key={lang.langKey}>
           <FormattedMessage id={`lang_name_${lang.langKey}`} />
         </span>
       ) : (

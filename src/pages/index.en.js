@@ -15,16 +15,17 @@ const IndexPage = ({ data, pathContext }) => {
   const navItems = data.allContentfulPage.edges
   const homepage = data.allContentfulHomepage.edges[0].node
   const blogPosts = data.allContentfulBlog.edges
+  const menuItems = data.allContentfulMenu.edges
 
   return (
     <div>
-      <Navigation lang={pathContext.langKey} navItems={navItems} />
+      <Navigation lang={pathContext.langKey} menuItems={menuItems} menuType="top" />
       <Hero data={homepage}/>
       <HomepageBoxes data={homepage.homepageBox} lang={pathContext.langKey} />
       <SecondSection data={homepage} lang={pathContext.langKey} />
       <BlogPostList posts={blogPosts} lang={pathContext.langKey} />
       <ContactFormSection data={homepage} />
-      <Footer data={homepage} navItems={navItems} />
+      <Footer data={homepage} menuItems={menuItems} menuType="top" />
     </div>
   )
 }
@@ -134,6 +135,35 @@ export const pageQuery = graphql`
           content {
             childMarkdownRemark {
               excerpt
+            }
+          }
+        }
+      }
+    }
+    allContentfulMenu (filter: { node_locale: { eq: "en" } }) {
+      edges {
+        node {
+          id
+          type
+          node_locale
+          items {
+            ... on ContentfulPage { 
+              id
+              link: slug
+              text: title
+              node_locale
+            }
+            ... on ContentfulBlog {
+              id
+              link: slug
+              text: title
+              node_locale
+            }
+            ... on ContentfulImageLink {
+              id
+              link
+              text
+              node_locale
             }
           }
         }
