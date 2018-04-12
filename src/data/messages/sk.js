@@ -9,4 +9,5 @@ module.exports = {
   'latestArticles': 'Články',
   'lang_name_sk': 'Slovenčina',
   'lang_name_en': 'English',
+  'readMore': 'Celý článok',
 };

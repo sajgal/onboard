@@ -23,7 +23,7 @@ const BlogPostList = props => {
           <div className="text">{post.content.childMarkdownRemark.excerpt}</div>
           <Link to={postLink} className="article-read-more">
             <button className="button-main">
-              Read more
+              <FormattedMessage id="readMore" />
               <i className="fa fa-angle-right" />
             </button>
           </Link>
