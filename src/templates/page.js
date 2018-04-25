@@ -104,6 +104,11 @@ export const pageQuery = graphql`
               text
               node_locale
             }
+            ... on ContentfulTextLink {
+              id
+              link
+              text
+            }
           }
         }
       }
