@@ -10,14 +10,14 @@ const Hero = props => {
       </div>
       <div className="gradient" />
       <div className="hero site-width">
-        <h2>{props.data.heroTitle}</h2>
+        {/* <h2>{props.data.heroTitle}</h2> */}
         <div
           className="text"
           dangerouslySetInnerHTML={{
             __html: props.data.heroDescription.childMarkdownRemark.html,
           }}
         />
-        <Link
+        {/* <Link
           to={`/${props.data.node_locale}/${props.data.heroButtonLink}`}
           key={props.data.heroButtonLink}
         >
@@ -25,7 +25,7 @@ const Hero = props => {
             {props.data.heroButtonText}
             <i className="fa fa-angle-right" />
           </button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   )

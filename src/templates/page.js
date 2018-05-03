@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
+import ImageBoxRow from '../components/ImageBoxRow'
 
 class Page extends Component {
   render() {
@@ -11,13 +12,18 @@ class Page extends Component {
       createdAt,
       body,
       featuredImage,
+      submenu,
     } = this.props.data.contentfulPage
     const homepage = this.props.data.allContentfulHomepage.edges[0].node
     const menuItems = this.props.data.allContentfulMenu.edges
 
     return (
       <div className="page-content">
-        <Navigation lang={this.props.pathContext.langKey} menuItems={menuItems} menuType="top" />
+        <Navigation
+          lang={this.props.pathContext.langKey}
+          menuItems={menuItems}
+          menuType="top"
+        />
 
         <div className="featured-image-box-full">
           <div className="site-width">
@@ -29,6 +35,11 @@ class Page extends Component {
         </div>
 
         <div className="site-width">
+          {submenu && (
+            <div className="submenu">
+              <ImageBoxRow boxes={submenu} />
+            </div>
+          )}
           <div
             dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}
           />
@@ -60,6 +71,19 @@ export const pageQuery = graphql`
         }
       }
       node_locale
+      submenu {
+        ... on ContentfulImageLink {
+          id
+          text
+          link
+          image {
+            sizes(maxWidth: 800) {
+              ...GatsbyContentfulSizes
+            }
+          }
+          node_locale
+        }
+      }
     }
     allContentfulHomepage(filter: { node_locale: { eq: $langKey } }) {
       edges {
@@ -79,14 +103,14 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulMenu (filter: { node_locale: { eq: $langKey } }) {
+    allContentfulMenu(filter: { node_locale: { eq: $langKey } }) {
       edges {
         node {
           id
           type
           node_locale
           items {
-            ... on ContentfulPage { 
+            ... on ContentfulPage {
               id
               link: slug
               text: title

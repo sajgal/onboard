@@ -275,6 +275,10 @@ button.button:hover {
   justify-self: end;
 }
 
+.homepage-description {
+  margin-bottom: 40px;
+}
+
 .services {
   display: grid;
   grid-auto-flow: column;
@@ -542,6 +546,10 @@ button.button:hover {
 .blog-content {
   display: grid;
   grid-template-rows: auto auto 1fr auto;
+}
+
+.submenu {
+  margin-bottom: 50px;
 }
 
 .featured-image-box-full {

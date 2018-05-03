@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
 const HomepageBoxes = props => {
-  const boxes = props.data.map(box => (
+  const boxes = props.data.homepageBox.map(box => (
     <div className="well" key={box.id}>
       <Link to={`/${props.lang}/${box.link}`} key={box.link} className="img">
         <Img sizes={box.image.sizes} />
@@ -25,6 +25,12 @@ const HomepageBoxes = props => {
 
   return (
     <div className="content site-width">
+      <div
+        className="homepage-description"
+        dangerouslySetInnerHTML={{
+          __html: props.data.description.childMarkdownRemark.html,
+        }}
+      />
       <div className="wells">{boxes}</div>
     </div>
   )

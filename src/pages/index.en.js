@@ -20,7 +20,7 @@ const IndexPage = ({ data, pathContext }) => {
     <div>
       <Navigation lang={pathContext.langKey} menuItems={menuItems} menuType="top" />
       <Hero data={homepage}/>
-      <HomepageBoxes data={homepage.homepageBox} lang={pathContext.langKey} />
+      <HomepageBoxes data={homepage} lang={pathContext.langKey} />
       <SecondSection data={homepage} lang={pathContext.langKey} />
       <BlogPostList posts={blogPosts} lang={pathContext.langKey} />
       <ContactFormSection data={homepage} />
@@ -50,6 +50,11 @@ export const pageQuery = graphql`
           }
           heroButtonText
           heroButtonLink
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
           homepageBox {
             id
             title
@@ -76,6 +81,7 @@ export const pageQuery = graphql`
             id
             text
             link
+            node_locale
             image {
               sizes(maxWidth: 800) {
                 ...GatsbyContentfulSizes
