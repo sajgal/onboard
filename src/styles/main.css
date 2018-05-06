@@ -594,3 +594,15 @@ button.button:hover {
   font-size: 14px;
   padding-bottom: 10px;
 }
+
+.second-section {
+  padding-top: 30px;
+  background: #d6ecff;
+  /* background: rgb(211, 239, 253);
+  background: #B8E9FF; */
+  margin-top: 40px;
+}
+
+.page-content .footer {
+  margin-top: 30px;
+}

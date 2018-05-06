@@ -13,6 +13,9 @@ class Page extends Component {
       body,
       featuredImage,
       submenu,
+      secondSectionTitle,
+      secondSectionText,
+      secondSectionList,
     } = this.props.data.contentfulPage
     const homepage = this.props.data.allContentfulHomepage.edges[0].node
     const menuItems = this.props.data.allContentfulMenu.edges
@@ -44,6 +47,27 @@ class Page extends Component {
             dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }}
           />
         </div>
+
+        {(secondSectionTitle || secondSectionText || secondSectionList) && (
+          <div className="second-section">
+            <div className="site-width">
+              {secondSectionTitle && <h2>{secondSectionTitle}</h2>}
+              {secondSectionText && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: secondSectionText.childMarkdownRemark.html,
+                  }}
+                />
+              )}
+              {secondSectionList && (
+                <div className="submenu">
+                  <ImageBoxRow boxes={secondSectionList} />
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         <Footer data={homepage} menuItems={menuItems} menuType="top" />
       </div>
     )
@@ -72,6 +96,25 @@ export const pageQuery = graphql`
       }
       node_locale
       submenu {
+        ... on ContentfulImageLink {
+          id
+          text
+          link
+          image {
+            sizes(maxWidth: 800) {
+              ...GatsbyContentfulSizes
+            }
+          }
+          node_locale
+        }
+      }
+      secondSectionTitle
+      secondSectionText {
+        childMarkdownRemark {
+          html
+        }
+      }
+      secondSectionList {
         ... on ContentfulImageLink {
           id
           text
