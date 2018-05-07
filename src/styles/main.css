@@ -596,13 +596,13 @@ button.button:hover {
 }
 
 .second-section {
-  padding-top: 30px;
-  background: #d6ecff;
-  /* background: rgb(211, 239, 253);
-  background: #B8E9FF; */
-  margin-top: 40px;
+  padding-top: 20px;
+  background: white;
+  border-top: 3px solid #8DC9FD;
+  max-width: 1120px;
+  margin: 20px auto 0 auto;
 }
 
 .page-content .footer {
-  margin-top: 30px;
+  margin-top: 40px;
 }
