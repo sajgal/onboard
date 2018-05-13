@@ -5,6 +5,7 @@
   --black: rgb(22, 22, 22);
   --grey: #1f2020;
   --blue: #117688;
+  --logo-blue: #8DC9FD;
   --content-margin: 70px;
   --side-padding: 20px;
   --hero-height: 450px;
@@ -550,6 +551,14 @@ button.button:hover {
 
 .page-content .site-width img {
   width: 100%;
+}
+
+.page-content .site-width a {
+  text-decoration: underline;
+}
+
+.page-content .site-width a:hover {
+  color: var(--blue);
 }
 
 .submenu {
