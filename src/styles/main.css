@@ -625,3 +625,7 @@ button.button:hover {
 .page-content .footer {
   margin-top: 40px;
 }
+
+.page-content h3 {
+  color: var(--blue);
+}
