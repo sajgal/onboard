@@ -13,7 +13,9 @@ const SecondSection = props => {
           __html: props.data.secondSectionDescription.childMarkdownRemark.html,
         }}
       />
-      <ImageBoxRow boxes={props.data.secondSectionBoxes} />
+      {props.data.secondSectionBoxes && (
+        <ImageBoxRow boxes={props.data.secondSectionBoxes} />
+      )}
     </div>
   )
 }
