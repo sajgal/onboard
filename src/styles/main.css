@@ -646,3 +646,20 @@ button.button:hover {
 .page-content h3 {
   color: var(--blue);
 }
+
+/* --------------- table styling --------------- */
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid var(--black);
+}
+
+td {
+  padding: 5px 15px;
+}
+
+thead {
+  display: none;
+}
