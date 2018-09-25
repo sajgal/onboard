@@ -113,6 +113,7 @@ export const pageQuery = graphql`
               id
               link
               text
+              node_locale
             }
           }
         }

@@ -58,6 +58,7 @@ export const indexPageQuery = graphql`
               id
               link
               text
+              node_locale
             }
           }
         }
