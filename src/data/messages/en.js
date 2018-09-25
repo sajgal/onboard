@@ -10,4 +10,6 @@ module.exports = {
   'lang_name_sk': 'Slovenčina',
   'lang_name_en': 'English',
   'readMore': 'Read more',
+  'previousPage': 'Go to Previous Page',
+  'nextPage': 'Go to Next Page',
 };

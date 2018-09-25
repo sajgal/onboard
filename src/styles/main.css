@@ -673,3 +673,13 @@ td {
 thead {
   display: none;
 }
+
+.blog-post-navigation {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto;
+  justify-items: right;
+  justify-content: right;
+  grid-gap: 20px;
+  margin-top: 30px;
+}
