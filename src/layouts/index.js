@@ -28,7 +28,7 @@ const TemplateWrapper = ({ children, data, location }) => {
         <Helmet
           title="OnBoard Study"
           meta={[
-            { name: 'description', content: 'Study agency Australia' },
+            { name: 'description', content: 'Education agency' },
             { name: 'keywords', content: 'study, agency' },
           ]}
         />
