@@ -58,12 +58,26 @@ export default class ContactFormSection extends React.Component {
           >
             {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
             <input type="hidden" name="form-name" value="contact" />
+
+            <p hidden>
+              <label>
+                Don’t fill this out:{' '}
+                <input name="bot-field" onChange={this.handleChange} />
+              </label>
+            </p>
+
             <label htmlFor="name">
               <FormattedMessage id="name" />
             </label>
             <FormattedMessage id="namePlaceholder">
               {text => (
-                <input type="text" name="name" id="name" placeholder={text} />
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder={text}
+                  onChange={this.handleChange}
+                />
               )}
             </FormattedMessage>
 
@@ -72,7 +86,13 @@ export default class ContactFormSection extends React.Component {
             </label>
             <FormattedMessage id="emailPlaceholder">
               {text => (
-                <input type="text" name="email" id="email" placeholder={text} />
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  placeholder={text}
+                  onChange={this.handleChange}
+                />
               )}
             </FormattedMessage>
 
@@ -80,7 +100,14 @@ export default class ContactFormSection extends React.Component {
               <FormattedMessage id="message" />
             </label>
             <FormattedMessage id="messagePlaceholder">
-              {text => <textarea name="message" id="text" placeholder={text} />}
+              {text => (
+                <textarea
+                  name="message"
+                  id="text"
+                  placeholder={text}
+                  onChange={this.handleChange}
+                />
+              )}
             </FormattedMessage>
 
             <FormattedMessage id="send">
