@@ -9,7 +9,9 @@ class RedirectIndex extends React.PureComponent {
 
     if (typeof window !== 'undefined') {
       const homeUrl = withPrefix(`/${args.data.site.siteMetadata.languages.defaultLangKey}/`);
-      window.___history.replace(homeUrl);
+      // window.___history.replace(homeUrl);
+
+      window.location.replace(homeUrl);
     }
   }
 
