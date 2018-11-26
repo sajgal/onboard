@@ -687,3 +687,16 @@ thead {
   grid-gap: 20px;
   margin-top: 30px;
 }
+
+div.icef-logo {
+  background: #FFF;
+  width: 130px;
+  display: grid;
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 15px;
+}
+
+div.icef-logo img {
+  height: 100px;
+}

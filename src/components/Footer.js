@@ -28,6 +28,9 @@ const Footer = props => {
     <div className="footer">
       <div className="footer-content site-width">
         <div>
+          <div className="icef-logo">
+            <img src={require('../assets/icef.png')} alt="icef" />
+          </div>
           <div className="marn-logo">
             <a href="https://www.mara.gov.au/" rel="nofollow" target="_blank">
               <img src={require('../assets/marn-logo.png')} alt="onBoard" />
