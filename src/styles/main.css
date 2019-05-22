@@ -122,7 +122,6 @@ body {
 }
 
 .header-language {
-  display: none; /* temporary */
   text-align: right;
   width: 100%;
 }
