@@ -1,18 +1,14 @@
 import React from 'react';
+import graphql from 'graphql';
 import { getUserLangKey } from 'ptz-i18n';
 import { withPrefix } from "gatsby-link";
-import browserLang from 'browser-lang';
-const languages = require('../data/languages')
 
 class RedirectIndex extends React.PureComponent {
   constructor(args) {
     super(args);
 
     if (typeof window !== 'undefined') {
-      let language = browserLang();
-      if (!languages.langs.includes(language))
-        language = languages.defaultLangKey;
-      const homeUrl = withPrefix(`/${language}/`);
+      const homeUrl = withPrefix(`/${args.data.site.siteMetadata.languages.defaultLangKey}/`);
       window.___history.replace(homeUrl);
     }
   }
@@ -24,3 +20,14 @@ class RedirectIndex extends React.PureComponent {
 
 export default RedirectIndex;
 
+export const pageQuery = graphql`
+  query IndexQuery {
+    site{
+      siteMetadata{
+        languages {
+          defaultLangKey
+        }
+      }
+    }
+  }
+`;
