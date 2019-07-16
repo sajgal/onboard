@@ -34,6 +34,7 @@ export default class ContactFormSection extends React.Component {
   }
 
   render() {
+    const isSlovak = this.props.lang === 'sk'
     return (
       <div className="content site-width">
         <div className="form-box">
@@ -57,17 +58,17 @@ export default class ContactFormSection extends React.Component {
             onSubmit={this.handleSubmit}
           >
             {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="form-name" value="contact"/>
 
             <p hidden>
               <label>
                 Don’t fill this out:{' '}
-                <input name="bot-field" onChange={this.handleChange} />
+                <input name="bot-field" onChange={this.handleChange}/>
               </label>
             </p>
 
             <label htmlFor="name">
-              <FormattedMessage id="name" />
+              <FormattedMessage id="name"/>
             </label>
             <FormattedMessage id="namePlaceholder">
               {text => (
@@ -82,7 +83,7 @@ export default class ContactFormSection extends React.Component {
             </FormattedMessage>
 
             <label htmlFor="email">
-              <FormattedMessage id="email" />
+              <FormattedMessage id="email"/>
             </label>
             <FormattedMessage id="emailPlaceholder">
               {text => (
@@ -97,7 +98,7 @@ export default class ContactFormSection extends React.Component {
             </FormattedMessage>
 
             <label htmlFor="message">
-              <FormattedMessage id="message" />
+              <FormattedMessage id="message"/>
             </label>
             <FormattedMessage id="messagePlaceholder">
               {text => (
@@ -110,8 +111,41 @@ export default class ContactFormSection extends React.Component {
               )}
             </FormattedMessage>
 
+            {/*{(isSlovak && <GDPRConsent />)}*/}
+
+            {isSlovak && (
+              <label htmlFor="confirmation">
+                <FormattedMessage id="gdpr_law"/>
+              </label>
+            )}
+
+            {isSlovak && (
+              <label htmlFor="confirmation">
+                <FormattedMessage id="gdpr_subject"/>
+              </label>
+            )}
+
+            {isSlovak && (
+              <label htmlFor="confirmationCheckbox">
+                <FormattedMessage id="gdpr_confirmation"/>
+              </label>)}
+
+            {isSlovak && (<input
+              type="checkbox"
+              name="confirmationCheckbox"
+              id="confirmationCheckbox"
+              onChange={this.handleChange}
+              required
+            />)}
+
+
+            {isSlovak && (<label htmlFor="confirmationCheckbox">
+              <FormattedMessage id="gdpr_more_info"/>
+              <a href={require('../assets/terms_and_conditions.pdf')} target="_blank">link</a>
+            </label>)}
+
             <FormattedMessage id="send">
-              {text => <input type="submit" value={text} />}
+              {text => <input type="submit" value={text}/>}
             </FormattedMessage>
           </form>
         </div>
