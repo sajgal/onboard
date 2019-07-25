@@ -114,19 +114,19 @@ export default class ContactFormSection extends React.Component {
             {/*{(isSlovak && <GDPRConsent />)}*/}
 
             {isSlovak && (
-              <label htmlFor="confirmation">
+              <label htmlFor="confirmation" className='small'>
                 <FormattedMessage id="gdpr_law"/>
               </label>
             )}
 
             {isSlovak && (
-              <label htmlFor="confirmation">
+              <label htmlFor="confirmation" className='small'>
                 <FormattedMessage id="gdpr_subject"/>
               </label>
             )}
 
             {isSlovak && (
-              <label htmlFor="confirmationCheckbox">
+              <label htmlFor="confirmationCheckbox" className='small'>
                 <FormattedMessage id="gdpr_confirmation"/>
               </label>)}
 
@@ -139,9 +139,9 @@ export default class ContactFormSection extends React.Component {
             />)}
 
 
-            {isSlovak && (<label htmlFor="confirmationCheckbox">
+            {isSlovak && (<label htmlFor="confirmationCheckbox" className='small'>
               <FormattedMessage id="gdpr_more_info"/>
-              <a href={require('../assets/terms_and_conditions.pdf')} target="_blank">link</a>
+              <a href={require('../assets/terms_and_conditions.pdf')} target="_blank">TU</a>
             </label>)}
 
             <FormattedMessage id="send">
@@ -153,3 +153,4 @@ export default class ContactFormSection extends React.Component {
     )
   }
 }
+

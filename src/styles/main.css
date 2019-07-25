@@ -699,3 +699,7 @@ div.icef-logo {
 div.icef-logo img {
   height: 100px;
 }
+
+.small {
+  font-size: small;
+}
