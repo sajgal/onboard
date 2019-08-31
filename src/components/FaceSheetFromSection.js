@@ -41,6 +41,7 @@ export default class FaceSheetFromSection extends React.Component {
 
   render() {
     const isSlovak = this.props.lang === 'sk'
+    let urlParams = new URLSearchParams(location.search)
 
     return (
       <div className="content site-width">
@@ -59,7 +60,8 @@ export default class FaceSheetFromSection extends React.Component {
           >
             {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
             <input type="hidden" name="form-name" value="facesheet"/>
-
+            <input hidden type="text" name="facesheet-name" id="facesheet-name" value={urlParams.get('facesheet')} />
+            
             <p hidden>
               <label>
                 Don’t fill this out:{' '}
