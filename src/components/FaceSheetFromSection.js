@@ -10,7 +10,7 @@ function encode(data) {
 let FaceSheetsEnum = {
   "study_in_australia": "https://assets.ctfassets.net/jj73errt89a7/1gULqPmCd7f0AO5LIPuUVn/baae876e6dd1d8241e3966caf4d0a8cd/study_in_australia.pdf",
   "studium_v_australii": "https://assets.ctfassets.net/jj73errt89a7/1ZTLg7He4BRzHpMck6RvVe/803e0771bc7459f82f1a577e2fe50986/studium_v_australii.pdf",
-  "work_and_study_canada": "https://assets.ctfassets.net/jj73errt89a7/1ZTLg7He4BRzHpMck6RvVe/803e0771bc7459f82f1a577e2fe50986/studium_v_australii.pdf",
+  "work_and_study_canada": "https://assets.ctfassets.net/jj73errt89a7/5NgG9UlfJvS9nsx8eG0e8I/02190d10fe7a9fea5fbb7dc693332ef7/work_and_study_canada.pdf",
 }
 
 export default class FaceSheetFromSection extends React.Component {
@@ -24,25 +24,25 @@ export default class FaceSheetFromSection extends React.Component {
   }
 
   handleSubmit = e => {
-    let facesheetName = location.search.split('facesheet=')
-
+    let faceSheetName = location.search.split('facesheet=')[1]
     e.preventDefault()
     const form = e.target
+
     fetch(`/${this.props.lang}/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
+        'facesheet-name': faceSheetName,
         ...this.state,
       }),
     })
-      .then(() => window.location.href = FaceSheetsEnum[facesheetName[1]])
+      .then(() => window.location.href = FaceSheetsEnum[faceSheetName])
       .catch(error => alert(error))
   }
 
   render() {
     const isSlovak = this.props.lang === 'sk'
-    let facesheetName = window.location.search.split('facesheet=')[1]
 
     return (
       <div className="content site-width">
@@ -61,7 +61,7 @@ export default class FaceSheetFromSection extends React.Component {
           >
             {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
             <input type="hidden" name="form-name" value="facesheet"/>
-            <input hidden type="text" name="facesheet-name" id="facesheetName" value={facesheetName} />
+            <input hidden type="text" name="facesheet-name" id="facesheetName" value="" />
 
             <p hidden>
               <label>
@@ -91,7 +91,7 @@ export default class FaceSheetFromSection extends React.Component {
             <FormattedMessage id="emailPlaceholder">
               {text => (
                 <input required
-                  type="text"
+                  type="email"
                   name="email"
                   id="email"
                   placeholder={text}
