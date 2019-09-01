@@ -1,7 +1,5 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
-const URLSearchParams = require('url').URLSearchParams
-// const sp = new URLSearchParams(request.querystring)
 
 function encode(data) {
   return Object.keys(data)
@@ -26,7 +24,8 @@ export default class FaceSheetFromSection extends React.Component {
   }
 
   handleSubmit = e => {
-    let urlParams = new URLSearchParams(location.search)
+    let facesheetName = location.search.split('facesheet=')
+
     e.preventDefault()
     const form = e.target
     fetch(`/${this.props.lang}/`, {
@@ -37,13 +36,13 @@ export default class FaceSheetFromSection extends React.Component {
         ...this.state,
       }),
     })
-      .then(() => window.location.href = FaceSheetsEnum[urlParams.get('facesheet')])
+      .then(() => window.location.href = FaceSheetsEnum[facesheetName[1]])
       .catch(error => alert(error))
   }
 
   render() {
     const isSlovak = this.props.lang === 'sk'
-    let facesheetName = location.search.split('facesheet=')
+    let facesheetName = window.location.search.split('facesheet=')[1]
 
     return (
       <div className="content site-width">
@@ -62,7 +61,7 @@ export default class FaceSheetFromSection extends React.Component {
           >
             {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
             <input type="hidden" name="form-name" value="facesheet"/>
-            <input hidden type="text" name="facesheet-name" id="facesheet-name" value={facesheetName[1]} />
+            <input hidden type="text" name="facesheet-name" id="facesheetName" value={facesheetName} />
 
             <p hidden>
               <label>
