@@ -1,5 +1,7 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
+const URLSearchParams = require('url').URLSearchParams
+// const sp = new URLSearchParams(request.querystring)
 
 function encode(data) {
   return Object.keys(data)
@@ -41,7 +43,7 @@ export default class FaceSheetFromSection extends React.Component {
 
   render() {
     const isSlovak = this.props.lang === 'sk'
-    let urlParams = new URLSearchParams(location.search)
+    let facesheetName = location.search.split('facesheet=')
 
     return (
       <div className="content site-width">
@@ -60,8 +62,8 @@ export default class FaceSheetFromSection extends React.Component {
           >
             {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
             <input type="hidden" name="form-name" value="facesheet"/>
-            <input hidden type="text" name="facesheet-name" id="facesheet-name" value={urlParams.get('facesheet')} />
-            
+            <input hidden type="text" name="facesheet-name" id="facesheet-name" value={facesheetName[1]} />
+
             <p hidden>
               <label>
                 Don’t fill this out:{' '}
@@ -141,55 +143,3 @@ export default class FaceSheetFromSection extends React.Component {
     )
   }
 }
-
-export const faceSheetFormQuery = graphql`
-  query FaceSheetFromQuery {
-    allContentfulHomepage(filter: { node_locale: { eq: "en" } }) {
-      edges {
-        node {
-          id
-          footerContacts {
-            childMarkdownRemark {
-              html
-            }
-          }
-          footerSocialLinks {
-            id
-            text
-            link
-            type
-          }
-        }
-      }
-    }
-    allContentfulMenu(filter: { node_locale: { eq: "en" } }) {
-      edges {
-        node {
-          id
-          type
-          node_locale
-          items {
-            ... on ContentfulPage {
-              id
-              link: slug
-              text: title
-              node_locale
-            }
-            ... on ContentfulImageLink {
-              id
-              link
-              text
-              node_locale
-            }
-            ... on ContentfulTextLink {
-              id
-              link
-              text
-              node_locale
-            }
-          }
-        }
-      }
-    }
-  }
-`
