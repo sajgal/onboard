@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
-import FaceSheetFormSection from '../../components/FaceSheetFromSection'
+import FactSheetFormSection from '../../components/FactSheetFromSection'
 import Hero from '../../components/Hero'
 
-class FaceSheet extends Component {
+class FactSheet extends Component {
   render() {
     const homepage = this.props.data.allContentfulHomepage.edges[0].node
     const menuItems = this.props.data.allContentfulMenu.edges
@@ -14,7 +14,7 @@ class FaceSheet extends Component {
       <div className="page-content">
         <Navigation lang="en" menuItems={menuItems} menuType="top" />
         {/*<Hero data={homepage}/>*/}
-        <FaceSheetFormSection data={homepage} lang="en" />
+        <FactSheetFormSection data={homepage} lang="en" />
 
         <Footer data={homepage} menuItems={menuItems} menuType="top" />
       </div>
@@ -22,14 +22,14 @@ class FaceSheet extends Component {
   }
 }
 
-FaceSheet.PropTypes = {
+FactSheet.PropTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default FaceSheet
+export default FactSheet
 
-export const faceSheetQuery = graphql`
-  query FaceSheetQuery {
+export const factSheetQuery = graphql`
+  query FactSheetQuery {
     allContentfulHomepage(filter: { node_locale: { eq: "en" } }) {
       edges {
         node {

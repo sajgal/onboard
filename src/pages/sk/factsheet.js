@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
-import FaceSheetFormSection from '../../components/FaceSheetFromSection'
+import FactSheetFormSection from '../../components/FactSheetFromSection'
 import Hero from '../../components/Hero'
 
-class FaceSheetSk extends Component {
+class FactSheetSk extends Component {
   render() {
     const homepage = this.props.data.allContentfulHomepage.edges[0].node
     console.log(this.props.data.allContentfulHomepage)
@@ -15,7 +15,7 @@ class FaceSheetSk extends Component {
       <div className="page-content">
         <Navigation lang="sk" menuItems={menuItems} menuType="top" />
         {/*<Hero data={homepage}/>*/}
-        <FaceSheetFormSection data={homepage} lang="sk" />
+        <FactSheetFormSection data={homepage} lang="sk" />
 
         <Footer data={homepage} menuItems={menuItems} menuType="top" />
       </div>
@@ -23,14 +23,14 @@ class FaceSheetSk extends Component {
   }
 }
 
-FaceSheetSk.PropTypes = {
+FactSheetSk.PropTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default FaceSheetSk
+export default FactSheetSk
 
-export const faceSheetSkQuery = graphql`
-  query FaceSheetSkQuery {
+export const factSheetSkQuery = graphql`
+  query FactSheetSkQuery {
     allContentfulHomepage(filter: { node_locale: { eq: "sk" } }) {
       edges {
         node {

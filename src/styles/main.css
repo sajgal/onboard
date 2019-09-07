@@ -406,26 +406,26 @@ button.button:hover {
   grid-template-columns: auto;
 }
 
-.content .form-box form[name=contact], .content .form-box form[name=facesheet] {
+.content .form-box form[name=contact], .content .form-box form[name=factsheet] {
   display: grid;
   padding: 10px 20px;
   background: rgba(128, 128, 128, 0.08);
   border-top: 3px solid var(--grey);
 }
 
-.content .form-box form[name=contact] label, .content .form-box form[name=facesheet] label {
+.content .form-box form[name=contact] label, .content .form-box form[name=factsheet] label {
   margin: 20px 0 0 0;
 }
 
 .content .form-box form[name=contact] > label:nth-child(1),
-.content .form-box form[name=facesheet] > label:nth-child(1) {
+.content .form-box form[name=factsheet] > label:nth-child(1) {
   margin-top: 0;
 }
 
 .content .form-box form[name=contact] input,
-.content .form-box form[name=facesheet] input,
+.content .form-box form[name=factsheet] input,
 .content .form-box form[name=contact] textarea,
-.content .form-box form[name=facesheet] textarea {
+.content .form-box form[name=factsheet] textarea {
   padding: 10px 5px;
   border: 1px solid rgb(180, 180, 180);
   font-family: 'Poppins', sans-serif;
@@ -433,9 +433,9 @@ button.button:hover {
 }
 
 .content .form-box form[name=contact] input:focus,
-.content .form-box form[name=facesheet] input:focus,
+.content .form-box form[name=factsheet] input:focus,
 .content .form-box form[name=contact] textarea:focus,
-.content .form-box form[name=facesheet] textarea:focus {
+.content .form-box form[name=factsheet] textarea:focus {
   border: 2px solid rgb(180, 180, 180);
 }
 
