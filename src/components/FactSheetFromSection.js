@@ -24,7 +24,9 @@ export default class FactSheetFromSection extends React.Component {
   }
 
   handleSubmit = e => {
-    let factSheetName = location.search.split('factsheet=')[1]
+    let params = new URLSearchParams(location.search);
+    let factSheetName = params.get("factsheet")
+
     e.preventDefault()
     const form = e.target
 
